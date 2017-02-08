@@ -1,0 +1,22 @@
+{
+  "name": "bandwagon",
+  "version": "1.0.0",
+  "description": "An Express-like server framework, mostly for shits, partly for giggles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammarm08/bandwagon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ammarm08/bandwagon/issues"
+  },
+  "homepage": "https://github.com/ammarm08/bandwagon#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7"
+  }
+}
