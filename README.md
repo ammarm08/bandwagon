@@ -38,7 +38,7 @@ function handleRoot (req, res) {
 app.set(someMiddleWare);
 
 // add routes
-app.route('/', handleRoot);
+app.get('/', handleRoot);
 
 app.listen(PORT, () => console.log(`Bandwagon listening on http://localhost:${PORT}`));
 ```
