@@ -14,6 +14,25 @@ Sample usage:
 ```js
 const bandwagon = require('index.js');
 const app = bandwagon();
+const PORT = 3000;
+
+// sample middleware
+function someMiddleWare (req, res) {
+  return new Promise(resolve => {
+    // .... do stuff with req
+    console.log(req.url);
+    resolve();
+  });
+}
+
+// sample handler
+function handleRoot (req, res) {
+  return new Promise(resolve => {
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(JSON.stringify({foo: 'bar'}));
+    resolve();
+  });
+}
 
 // add custom middlewares ...
 app.set(someMiddleWare);
@@ -21,22 +40,5 @@ app.set(someMiddleWare);
 // add routes
 app.route('/', handleRoot);
 
-app.listen(3000, () => console.log('Hi.'));
-
-// sample middleware
-function someMiddleWare = function (req, res) {
-  return new Promise(resolve => {
-    // .... do stuff with req
-    resolve();
-  });
-}
-
-// sample handler
-function handleRoute = function (req, res) {
-  return new Promise(resolve => {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(data));
-    resolve();
-  });
-}
+app.listen(PORT, () => console.log(`Bandwagon listening on http://localhost:${PORT}`));
 ```
