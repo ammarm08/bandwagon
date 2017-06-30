@@ -28,9 +28,19 @@ const handleHealthCheck = co(function * (req, res) {
   return null;
 });
 
+const postData = co(function * (req, res) {
+  res.writeHeader(200, {
+    'Content-Type': 'application/json'
+  });
+
+  res.end(JSON.stringify(req.body));
+  return null;
+});
+
 // set route handlers
-app.route('/', handleRoot);
-app.route('/__health-check__', handleHealthCheck);
+app.get('/', handleRoot);
+app.get('/__health-check__', handleHealthCheck);
+app.post('/data', postData);
 
 console.log(app);
 module.exports = app;

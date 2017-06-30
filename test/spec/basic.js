@@ -76,4 +76,18 @@ describe('Server starts', function () {
         done();
       });
   });
+
+  it('POST /data: sends back data sent in request body', function (done) {
+    request(server)
+      .post('/data')
+      .send({send: 'data'})
+      .expect(200)
+      .expect('Content-type', /application\/json/)
+      .end((err, res) => {
+        res.status.should.equal(200);
+        res.body.should.be.a.Object();
+        res.body.send.should.equal('data');
+        done();
+      });
+  });
 });
